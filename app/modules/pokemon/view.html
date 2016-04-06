@@ -1,0 +1,23 @@
+<form ng-hide="pokemonCtrl.pokemons.length >= 3">
+  <input type="text" placeholder="Pokeman" ng-model="pokemonCtrl.newPokemon">
+  <input type="submit" value="Add Pokeman" ng-click="pokemonCtrl.addPokemon()">
+</form>
+
+<h1>Your Team ({{ pokemonCtrl.pokemons.length }}/3)</h1>
+
+<table>
+  <tbody>
+    <tr ng-repeat="pokemon in pokemonCtrl.pokemons">
+      <td>{{ pokemon.name }}</td>
+      <td>
+        <img ng-src="{{ pokemon.sprites.front_shiny }}">
+      </td>
+      <td>
+        <img ng-src="{{ pokemon.sprites.back_shiny }}">
+      </td>
+      <td>
+        <i class="fa fa-times-circle" ng-click="pokemonCtrl.deletePokemon(pokemon)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
